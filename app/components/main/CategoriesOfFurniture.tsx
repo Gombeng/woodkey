@@ -9,7 +9,7 @@ export default function CategoriesOfFurniture() {
       <HeadingComp text="Categories of furniture" />
       <Box mt={8} />
 
-      <Tabs.Root defaultValue="Beds" orientation="horizontal">
+      <Tabs.Root defaultValue="Beds" orientation="horizontal" variant={"plain"}>
         <Tabs.List
           gap={4}
           display="flex"
@@ -44,13 +44,6 @@ export default function CategoriesOfFurniture() {
               <Text>{label}</Text>
             </VStack>
           ))}
-          <Tabs.Indicator
-            mt={1}
-            height="2px"
-            bg="primary"
-            borderRadius="full"
-            transition="all 0.3s ease"
-          />
         </Tabs.List>
 
         {categoriesOfFurniture.map((data) => (

@@ -1,12 +1,1 @@
 @import "tailwindcss";
-
-.css-1pectay {
-  display: none;
-}
-
-.css-1pdg2rr:is(
-    [aria-selected="true"],
-    [data-selected]
-  )[data-orientation="horizontal"]::before {
-  display: none;
-}
