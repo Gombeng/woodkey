@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import { useColorModeValue } from "./ui/color-mode";
 import { ButtonComp } from "./ButtonComp";
 import { navLinks } from "~/utils/data";
+import { EnterX } from "./FramerMotion";
 
 export default function NavbarComp() {
   const navigate = useNavigate();
@@ -35,60 +36,67 @@ export default function NavbarComp() {
       <Container py={4}>
         <Flex justify="space-between" align="center">
           {/* Logo */}
-          <Text
-            fontSize="2xl"
-            letterSpacing={2}
-            fontWeight="bold"
-            color="primary.50"
-            cursor="pointer"
-            onClick={() => navigate("/")}
-          >
-            Woodkey
-          </Text>
+          <EnterX>
+            <Text
+              fontSize="2xl"
+              letterSpacing={2}
+              fontWeight="bold"
+              color="primary.50"
+              cursor="pointer"
+              onClick={() => navigate("/")}
+            >
+              Woodkey
+            </Text>
+          </EnterX>
 
           {/* Links */}
           <HStack gap={50}>
-            {navLinks.map(({ label, to }) => {
+            {navLinks.map(({ label, to }, idx) => {
               const isActive = pathname === to;
               return (
-                <Text
-                  key={to}
-                  cursor="pointer"
-                  position="relative"
-                  fontWeight="medium"
-                  color={"white"}
-                  onClick={() => navigate(to)}
-                  _hover={{
-                    _after: {
-                      content: '""',
-                      position: "absolute",
-                      bottom: "-3px",
-                      left: 0,
-                      w: "100%",
-                      h: "3px",
-                      bg: "primary",
-                    },
-                  }}
-                  _after={
-                    isActive
-                      ? {
-                          content: '""',
-                          position: "absolute",
-                          bottom: "-3px",
-                          left: 0,
-                          w: "100%",
-                          h: "3px",
-                          bg: "primary",
-                        }
-                      : undefined
-                  }
-                >
-                  {label}
-                </Text>
+                <EnterX key={idx} index={idx}>
+                  <Text
+                    key={to}
+                    cursor="pointer"
+                    position="relative"
+                    fontWeight="medium"
+                    color={"white"}
+                    onClick={() => navigate(to)}
+                    _hover={{
+                      _after: {
+                        content: '""',
+                        position: "absolute",
+                        bottom: "-3px",
+                        left: 0,
+                        w: "100%",
+                        h: "3px",
+                        bg: "primary",
+                      },
+                    }}
+                    _after={
+                      isActive
+                        ? {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-3px",
+                            left: 0,
+                            w: "100%",
+                            h: "3px",
+                            bg: "primary",
+                          }
+                        : undefined
+                    }
+                  >
+                    {label}
+                  </Text>
+                </EnterX>
               );
             })}
           </HStack>
-          <ButtonComp>Order</ButtonComp>
+
+          <EnterX isRight>
+            <ButtonComp>Order</ButtonComp>
+          </EnterX>
         </Flex>
       </Container>
     </Box>

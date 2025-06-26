@@ -3,11 +3,12 @@ import { ButtonComp } from "./ButtonComp";
 import { Furniture1 } from "~/assets";
 import { FaStar } from "react-icons/fa6";
 import { LuStar } from "react-icons/lu";
+import { EnterX } from "./FramerMotion";
 
 export function CardComp(props: any) {
   const { icon, title, desc } = props;
   return (
-    <Card.Root border={0}>
+    <Card.Root border={0} minH={"full"}>
       <Card.Body
         gap="2"
         alignItems="center"
@@ -59,15 +60,18 @@ export function FurnitureCard({
 }: any) {
   return (
     <Card.Root flexDirection="row" overflow="hidden" borderRadius={8} {...rest}>
-      <Image
-        objectFit="cover"
-        maxH="sm"
-        objectPosition="bottom"
-        w="full"
-        src={image}
-        alt={`${label} Project`}
-        flex={1}
-      />
+      <Box flex={1}>
+        <EnterX>
+          <Image
+            objectFit="cover"
+            maxH="sm"
+            objectPosition="bottom"
+            w="full"
+            src={image}
+            alt={`${label} Project`}
+          />
+        </EnterX>
+      </Box>
 
       <Box flex={1}>
         <Card.Body
@@ -77,25 +81,37 @@ export function FurnitureCard({
           w="full"
           position="relative"
         >
-          <Card.Title fontSize="xl" fontWeight="semibold" mb={2} color="white">
-            {label} Project Showcase
-          </Card.Title>
+          <EnterX isRight>
+            <Card.Title
+              fontSize="xl"
+              fontWeight="semibold"
+              mb={2}
+              color="white"
+            >
+              {label} Project Showcase
+            </Card.Title>
+          </EnterX>
 
-          <Card.Description mb={4} color="white">
-            {descriptions.map((text: any, idx: any) => (
-              <Text mb={3} maxW={550} key={idx}>
-                {text}
-              </Text>
-            ))}
-          </Card.Description>
+          <EnterX index={1} isRight>
+            <Box mb={4}>
+              {descriptions.map((text: any, idx: any) => (
+                <Card.Description color="white" mb={3} maxW={550} key={idx}>
+                  {text}
+                </Card.Description>
+              ))}
+            </Box>
+          </EnterX>
 
-          <ButtonComp maxW={300}>View Project</ButtonComp>
-
+          <EnterX index={2} isRight>
+            <ButtonComp maxW={300}>View Project</ButtonComp>
+          </EnterX>
           <Box pt={10} />
           <Box position="absolute" bottom={5}>
-            <Text fontSize="sm" color="primary.50">
-              — {customer}
-            </Text>
+            <EnterX index={3} isRight>
+              <Text fontSize="sm" color="primary.50">
+                — {customer}
+              </Text>
+            </EnterX>
           </Box>
         </Card.Body>
       </Box>
@@ -124,6 +140,7 @@ export const ReviewCard = ({ name, image, date, rating, review }: any) => (
     p={4}
     bg="secondary"
     color="white"
+    maxW={500}
   >
     <Card.Body gap={3}>
       <Flex gap={3} align="center" mb={2}>

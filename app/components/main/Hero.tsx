@@ -14,9 +14,11 @@ import { ButtonComp, IconButtonComp } from "../ButtonComp";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { useColorModeValue } from "../ui/color-mode";
 import { socialLinks } from "~/utils/data";
+import { EnterX } from "../FramerMotion";
 
 export default function Hero() {
   const iconColor = useColorModeValue("gray.600", "gray.300");
+
   return (
     <Box
       w="full"
@@ -26,17 +28,25 @@ export default function Hero() {
       bgPos="center"
       color={"white"}
       position={"relative"}
+      overflow={"hidden"}
     >
-      <Container minH={"svh"} alignContent={"center"} maxW={""}>
+      <Container minH={"svh"} alignContent={"center"}>
         <VStack align="start" gap={6} maxW="2xl">
-          <Heading fontSize={{ base: "3xl", md: "5xl" }} lineHeight="1.2">
-            An individual approach to every detail of your interior
-          </Heading>
-          <Text fontSize={{ base: "md", md: "lg" }} maxW={444}>
-            Realize your dream of perfect furniture and unique details together
-            with our team
-          </Text>
-          <ButtonComp>Order</ButtonComp>
+          <EnterX>
+            <Heading fontSize={{ base: "3xl", md: "5xl" }} lineHeight="1.2">
+              An individual approach to every detail of your interior
+            </Heading>
+          </EnterX>
+          <EnterX index={1}>
+            <Text fontSize={{ base: "md", md: "lg" }} maxW={444}>
+              Realize your dream of perfect furniture and unique details
+              together with our team
+            </Text>
+          </EnterX>
+
+          <EnterX index={2}>
+            <ButtonComp>Order</ButtonComp>
+          </EnterX>
         </VStack>
       </Container>
 
@@ -44,20 +54,22 @@ export default function Hero() {
         <Container>
           <Flex justifyContent={"space-between"}>
             <HStack gap={7}>
-              <IconButtonComp>
-                <GrPrevious />
-              </IconButtonComp>
-
-              <IconButtonComp>
-                <GrNext />
-              </IconButtonComp>
+              <EnterX index={4}>
+                <IconButtonComp>
+                  <GrPrevious />
+                </IconButtonComp>
+              </EnterX>
+              <EnterX index={5}>
+                <IconButtonComp>
+                  <GrNext />
+                </IconButtonComp>
+              </EnterX>
             </HStack>
 
-            <Flex direction="column" align={["flex-start", "center"]} gap={4}>
-              <Flex gap={4}>
-                {socialLinks.map(({ icon: IconEl, href, label }) => (
+            <Flex gap={6} me={2}>
+              {socialLinks.map(({ icon: IconEl, href, label }, index) => (
+                <EnterX key={label} index={index + 4} isRight>
                   <Link
-                    key={label}
                     href={href}
                     aria-label={label}
                     target="_blank"
@@ -65,8 +77,8 @@ export default function Hero() {
                   >
                     <Icon as={IconEl} boxSize={5} color={iconColor} />
                   </Link>
-                ))}
-              </Flex>
+                </EnterX>
+              ))}
             </Flex>
           </Flex>
         </Container>
