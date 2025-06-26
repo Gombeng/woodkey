@@ -26,11 +26,11 @@ export default function NavbarComp() {
       as="nav"
       position="fixed"
       top={0}
+      mt={-1}
       w="100%"
       zIndex="sticky"
       bg={bg}
       boxShadow={shadow}
-      // backdropFilter="saturate(180%) blur(12px)"
       transition="all 0.3s ease"
     >
       <Container py={4}>

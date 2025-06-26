@@ -22,8 +22,12 @@ export default function Main() {
         <OurAdvantages />
         <Box m={10} />
         <CategoriesOfFurniture />
-        <Box m={10} />
-        <Reviews />
+      </Container>
+
+      <Box m={10} />
+      <Reviews />
+
+      <Container>
         <Box m={10} />
         <Faq />
         <Box m={10} />

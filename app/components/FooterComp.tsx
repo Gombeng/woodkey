@@ -26,7 +26,7 @@ export default function FooterComp() {
   };
 
   return (
-    <Box bg={bg} py={10} overflow={'hidden'}>
+    <Box bg={bg} py={10} overflow={"hidden"}>
       <Container>
         <Flex justify="space-between" wrap="wrap" align="flex-start" gap={10}>
           <Box maxW={300}>
@@ -70,28 +70,26 @@ export default function FooterComp() {
             ))}
           </SimpleGrid>
 
-          <Flex direction="column" align={["flex-start", "center"]} gap={4}>
-            <Flex gap={4}>
-              {socialLinks.map(({ icon: IconEl, href, label }, index) => (
-                <EnterX isRight key={label} index={index}>
-                  <Link
-                    href={href}
-                    aria-label={label}
-                    target="_blank"
-                    _hover={{ color: "primary" }}
-                  >
-                    <Icon as={IconEl} boxSize={5} color={iconColor} />
-                  </Link>
-                </EnterX>
-              ))}
-            </Flex>
+          <Flex gap={4}>
+            {socialLinks.map(({ icon: IconEl, href, label }, index) => (
+              <EnterX isRight key={label} index={index}>
+                <Link
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  _hover={{ color: "primary" }}
+                >
+                  <Icon as={IconEl} boxSize={5} color={iconColor} />
+                </Link>
+              </EnterX>
+            ))}
           </Flex>
 
-          <EnterX isRight>
-            <IconButtonComp onClick={scrollToTop} rotate={"90"}>
+          <IconButtonComp onClick={scrollToTop} rotate={"90"}>
+            <EnterX isRight>
               <GrPrevious />
-            </IconButtonComp>
-          </EnterX>
+            </EnterX>
+          </IconButtonComp>
         </Flex>
       </Container>
     </Box>

@@ -53,23 +53,22 @@ export default function Hero() {
       <Box w="full" mt={20} position="absolute" bottom={8}>
         <Container>
           <Flex justifyContent={"space-between"}>
-            <HStack gap={7}>
-              <EnterX index={4}>
+            <EnterX index={4}>
+              <HStack gap={7}>
                 <IconButtonComp>
                   <GrPrevious />
                 </IconButtonComp>
-              </EnterX>
-              <EnterX index={5}>
                 <IconButtonComp>
                   <GrNext />
                 </IconButtonComp>
-              </EnterX>
-            </HStack>
+              </HStack>
+            </EnterX>
 
-            <Flex gap={6} me={2}>
-              {socialLinks.map(({ icon: IconEl, href, label }, index) => (
-                <EnterX key={label} index={index + 4} isRight>
+            <EnterX index={4} isRight>
+              <Flex gap={6}>
+                {socialLinks.map(({ icon: IconEl, href, label }, index) => (
                   <Link
+                    key={index}
                     href={href}
                     aria-label={label}
                     target="_blank"
@@ -77,9 +76,9 @@ export default function Hero() {
                   >
                     <Icon as={IconEl} boxSize={5} color={iconColor} />
                   </Link>
-                </EnterX>
-              ))}
-            </Flex>
+                ))}
+              </Flex>
+            </EnterX>
           </Flex>
         </Container>
       </Box>

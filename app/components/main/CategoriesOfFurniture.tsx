@@ -6,19 +6,19 @@ import { EnterX } from "../FramerMotion";
 
 export default function CategoriesOfFurniture() {
   return (
-    <Box>
+    <Box overflow={"hidden"}>
       <EnterX>
         <HeadingComp text="Categories of furniture" />
       </EnterX>
-      <Box mt={8} />
+      <Box mt={10} />
 
       <Tabs.Root defaultValue="Beds" orientation="horizontal" variant={"plain"}>
         <Tabs.List
           gap={4}
           display="flex"
           flexWrap="wrap"
-          justifyContent="space-between"
-          mb={6}
+          justifyContent="space-evenly"
+          mb={8}
           border={0}
         >
           {categoriesOfFurniture.map(({ label, icon: Icon }, index) => (

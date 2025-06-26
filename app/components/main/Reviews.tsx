@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import HeadingComp from "../HeadingComp";
 import { reviews } from "~/utils/data";
 import { ReviewCard } from "../CardComp";
@@ -7,9 +7,11 @@ import AutoScrollSlider, { EnterX } from "../FramerMotion";
 export default function Reviews() {
   return (
     <Box>
-      <EnterX>
-        <HeadingComp text="Reviews" />
-      </EnterX>
+      <Container>
+        <EnterX>
+          <HeadingComp text="Reviews" />
+        </EnterX>
+      </Container>
       <Box m={10} />
 
       <AutoScrollSlider
