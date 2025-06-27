@@ -4,14 +4,12 @@ import {
   Heading,
   Icon,
   Text,
-  HStack,
   VStack,
   Container,
   Link,
 } from "@chakra-ui/react";
 import { HeroBg } from "~/assets";
-import { ButtonComp, IconButtonComp } from "../ButtonComp";
-import { GrNext, GrPrevious } from "react-icons/gr";
+import { ButtonComp } from "../ButtonComp";
 import { useColorModeValue } from "../ui/color-mode";
 import { socialLinks } from "~/utils/data";
 import { EnterX } from "../FramerMotion";
@@ -22,7 +20,6 @@ export default function Hero() {
   return (
     <Box
       w="full"
-      minH="100vh"
       bgImage={`url(${HeroBg})`}
       bgSize="cover"
       bgPos="center"
@@ -30,15 +27,15 @@ export default function Hero() {
       position={"relative"}
       overflow={"hidden"}
     >
-      <Container minH={"svh"} alignContent={"center"}>
-        <VStack align="start" gap={6} maxW="2xl">
+      <Container py={100} minH={{ base: "svh" }} alignContent={"center"}>
+        <VStack align="start" gap={6} maxW={{ sm: "lg" }}>
           <EnterX>
-            <Heading fontSize={{ base: "3xl", md: "5xl" }} lineHeight="1.2">
+            <Heading fontSize={{ base: "2xl", sm: "3xl" }} lineHeight="1.2">
               An individual approach to every detail of your interior
             </Heading>
           </EnterX>
           <EnterX index={1}>
-            <Text fontSize={{ base: "md", md: "lg" }} maxW={444}>
+            <Text fontSize={{ base: "md", md: "lg" }} maxW={{ base: "sm" }}>
               Realize your dream of perfect furniture and unique details
               together with our team
             </Text>
@@ -48,40 +45,24 @@ export default function Hero() {
             <ButtonComp>Order</ButtonComp>
           </EnterX>
         </VStack>
-      </Container>
 
-      <Box w="full" mt={20} position="absolute" bottom={8}>
-        <Container>
-          <Flex justifyContent={"space-between"}>
-            <EnterX index={4}>
-              <HStack gap={7}>
-                <IconButtonComp>
-                  <GrPrevious />
-                </IconButtonComp>
-                <IconButtonComp>
-                  <GrNext />
-                </IconButtonComp>
-              </HStack>
-            </EnterX>
-
-            <EnterX index={4} isRight>
-              <Flex gap={6}>
-                {socialLinks.map(({ icon: IconEl, href, label }, index) => (
-                  <Link
-                    key={index}
-                    href={href}
-                    aria-label={label}
-                    target="_blank"
-                    _hover={{ color: "primary" }}
-                  >
-                    <Icon as={IconEl} boxSize={5} color={iconColor} />
-                  </Link>
-                ))}
-              </Flex>
-            </EnterX>
+        <Box position={"absolute"} bottom={0} py={5}>
+          <Flex gap={{ base: 8, md: 6 }}>
+            {socialLinks.map(({ icon: IconEl, href, label }, index) => (
+              <EnterX key={index} isRight index={index + 4}>
+                <Link
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  _hover={{ color: "primary" }}
+                >
+                  <Icon as={IconEl} boxSize={5} color={iconColor} />
+                </Link>
+              </EnterX>
+            ))}
           </Flex>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     </Box>
   );
 }

@@ -59,14 +59,19 @@ export function FurnitureCard({
   ...rest
 }: any) {
   return (
-    <Card.Root flexDirection="row" overflow="hidden" borderRadius={8} {...rest}>
+    <Card.Root
+      flexDirection={{ md: "row" }}
+      overflow="hidden"
+      borderRadius={8}
+      {...rest}
+      h={{ lg: "80" }}
+    >
       <Box flex={1}>
         <EnterX>
           <Image
-            objectFit="cover"
-            maxH="sm"
-            objectPosition="bottom"
-            w="full"
+            minH={{ sm: "base", md: "sm" }}
+            objectFit={"cover"}
+            objectPosition={"center"}
             src={image}
             alt={`${label} Project`}
           />

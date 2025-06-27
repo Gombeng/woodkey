@@ -18,19 +18,10 @@ export default function Main() {
     <Box>
       <Hero />
       <Container>
-        <Box m={10} />
         <OurAdvantages />
-        <Box m={10} />
         <CategoriesOfFurniture />
-      </Container>
-
-      <Box m={10} />
-      <Reviews />
-
-      <Container>
-        <Box m={10} />
+        <Reviews />
         <Faq />
-        <Box m={10} />
       </Container>
     </Box>
   );

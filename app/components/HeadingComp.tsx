@@ -6,7 +6,7 @@ export default function HeadingComp({ text }: any) {
       position="relative"
       w={"fit-content"}
       fontWeight="medium"
-      fontSize={"2xl"}
+      fontSize={{ base: "xl", sm: "2xl" }}
       _after={{
         content: '""',
         position: "absolute",

@@ -1,24 +1,22 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 import HeadingComp from "../HeadingComp";
 import { reviews } from "~/utils/data";
 import { ReviewCard } from "../CardComp";
-import AutoScrollSlider, { EnterX } from "../FramerMotion";
+import { EnterX } from "../FramerMotion";
 
 export default function Reviews() {
   return (
-    <Box>
-      <Container>
-        <EnterX>
-          <HeadingComp text="Reviews" />
-        </EnterX>
-      </Container>
-      <Box m={10} />
+    <Box my={10}>
+      <EnterX>
+        <HeadingComp text="Reviews" />
+      </EnterX>
+      <Box m={8} />
 
-      <AutoScrollSlider
-        items={reviews}
-        speed={500}
-        renderItem={(item: any, idx: any) => <ReviewCard key={idx} {...item} />}
-      />
+      <SimpleGrid columns={[1, 2, 3]} gap={5}>
+        {reviews.map((item) => (
+          <ReviewCard key={item.name} {...item} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 }
