@@ -141,11 +141,12 @@ export const ReviewCard = ({ name, image, date, rating, review }: any) => (
   <Card.Root
     border="1px solid"
     borderColor="gray.100"
-    borderRadius="xl"
+    borderRadius="8"
     p={4}
     bg="secondary"
     color="white"
     maxW={500}
+    minH={"full"}
   >
     <Card.Body gap={3}>
       <Flex gap={3} align="center" mb={2}>

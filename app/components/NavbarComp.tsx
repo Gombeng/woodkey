@@ -67,7 +67,7 @@ export default function NavbarComp() {
                 position: "absolute",
                 bottom: "-3px",
                 left: 0,
-                w: "100%",
+                w: { base: "5%", md: "30%" },
                 h: "3px",
                 bg: "primary",
               }
@@ -92,7 +92,7 @@ export default function NavbarComp() {
     >
       <Container py={{ base: 4, md: 4 }} maxW="container.xl">
         <Flex justify="space-between" align="center">
-          <EnterX>
+          <EnterX isRight>
             <Text
               fontSize={{ base: "xl", md: "2xl" }}
               fontWeight="bold"
@@ -117,9 +117,9 @@ export default function NavbarComp() {
           ) : (
             <>
               <HStack gap={50}>
-                {navLinks.map(({ label, to }, idx) => (
+                {navLinks.map((item, idx) => (
                   <EnterX key={idx} index={idx}>
-                    <NavLink label={label} to={to} />
+                    <NavLink {...item} />
                   </EnterX>
                 ))}
               </HStack>
@@ -138,9 +138,11 @@ export default function NavbarComp() {
             <Drawer.Content bg={"secondary"}>
               <Drawer.Header />
               <Drawer.Body>
-                <VStack align="start" gap={6}>
-                  {navLinks.map(({ label, to }, idx) => (
-                    <NavLink key={idx} label={label} to={to} />
+                <VStack align="start" gap={6} w={"full"}>
+                  {navLinks.map((item, idx) => (
+                    <Box w={"full"}>
+                      <NavLink key={idx} {...item} />
+                    </Box>
                   ))}
                 </VStack>
               </Drawer.Body>
@@ -150,7 +152,7 @@ export default function NavbarComp() {
                 </ButtonComp>
               </Drawer.Footer>
               <Drawer.CloseTrigger asChild>
-                <CloseButton size={"2xl"} />
+                <CloseButton size={"xl"} />
               </Drawer.CloseTrigger>
             </Drawer.Content>
           </Drawer.Positioner>

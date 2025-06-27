@@ -13,8 +13,10 @@ export default function Reviews() {
       <Box m={8} />
 
       <SimpleGrid columns={[1, 2, 3]} gap={5}>
-        {reviews.map((item) => (
-          <ReviewCard key={item.name} {...item} />
+        {reviews.map((item, index) => (
+          <EnterX key={index} index={index}>
+            <ReviewCard {...item} />
+          </EnterX>
         ))}
       </SimpleGrid>
     </Box>
