@@ -140,8 +140,8 @@ export default function NavbarComp() {
               <Drawer.Body>
                 <VStack align="start" gap={6} w={"full"}>
                   {navLinks.map((item, idx) => (
-                    <Box w={"full"}>
-                      <NavLink key={idx} {...item} />
+                    <Box w={"full"} key={idx}>
+                      <NavLink {...item} />
                     </Box>
                   ))}
                 </VStack>
